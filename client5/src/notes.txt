@@ -1,0 +1,105 @@
+why react and not HTML?
+
+while everything we can do in plain HTML, CSS, JS, react allows:
+-- better code reuse
+-- large scale performance in poroduction 
+-- clean separation of concern via components 
+-- easier maintainance and testing
+
+
+Folder Structure:
+
+industry standard Folder Layout:
+
+src
+|-- components/  # reusable UI components
+|-- pages/       # Page-specific components
+|-- utils/       # constants, helpers and mock data
+
+
+src = source folder. All app logic should reside here 
+you are free to structure folders as you like, but the industry typically follows this convention
+
+
+
+.jsx vs .js which one for components ?4
+
+✅ use .jsx for files containing JSX 
+    const MyComponents= ()=>{
+        return <h1>Hello,JSX</H!>;
+    };
+    export default MyComponent;
+
+Pros of .jsx:
+    - Clarity :indicates the presence of JSX
+    - Better editor support (highlighting, lifting)
+    - Matches community convention 
+
+⚠️ You can use .js but ...
+cons:
+    -misleading for JSX-containing files
+    -may confuse older tooling
+    -less expresssive in files lists 
+
+    ✅ Best Practice:
+    Use .jsx for components
+    Use .js for utilities, config and non-JSX logic
+
+:: Importing files in React
+
+You can import like this:
+    import Header from "./components/Header.jsx     // you can skip the extension
+
+    Note: The .jsx extension is optional while importing
+
+Constant and static data 
+    dont keep large static data or hardcoded strings inside the component 
+
+    instead extract from utils/
+
+    // utils/constants.js
+
+    export const CDN_LINK = "https://cdnlink.com"
+    export const URL = "https://suhail.app"
+
+
+
+
+    //utils/mockdata.js
+
+    const data = [
+        {
+            //complete large data set
+        }
+    ];
+
+
+    export default data;
+
+
+Export tips:
+
+Named Exports
+
+//constants.js
+export const CDN_LINK = "https://cdnlink.com"
+export const URL = "https://suhail.app"
+
+//Usage
+  import {CDN_LINK, URL} from "../utils/constans";
+
+
+Default Export 
+
+//mockdata.jsexport default data;
+
+
+//Usage
+import data from "../utils/mockdata";
+
+File Size Guideines:
+in companies like UBER, fie length best practice:
+    Avoid flie slonger than 100 lines
+    if you exceed that, refactor into smaler components or files 
+
+follow these practices to keep your react project clean,scaleable and production ready!
